@@ -76,7 +76,7 @@ class AesSiv {
 
 		var d = try cmac(macKey: macKey, data: zero)
 		for s in ad {
-			d = xor(dbl(d), try cmac(macKey: macKey, data: s))
+			d = try xor(dbl(d), cmac(macKey: macKey, data: s))
 		}
 
 		let t: [UInt8]

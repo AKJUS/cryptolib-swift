@@ -32,15 +32,15 @@ class CryptorTests: XCTestCase {
 	}
 
 	func testEncryptDirId() throws {
-		let rootDir = try cryptor.encryptDirId("".data(using: .utf8)!)
+		let rootDir = try cryptor.encryptDirId(Data("".utf8))
 		XCTAssertEqual("VLWEHT553J5DR7OZLRJAYDIWFCXZABOD", rootDir)
 
-		let testDir = try cryptor.encryptDirId("918acfbd-a467-3f77-93f1-f4a44f9cfe9c".data(using: .utf8)!)
+		let testDir = try cryptor.encryptDirId(Data("918acfbd-a467-3f77-93f1-f4a44f9cfe9c".utf8))
 		XCTAssertEqual("7C3USOO3VU7IVQRKFMRFV3QE4VEZJECV", testDir)
 	}
 
 	func testEncryptAndDecryptName() throws {
-		let dirId = "foo".data(using: .utf8)!
+		let dirId = Data("foo".utf8)
 		let originalName = "hello.txt"
 
 		let ciphertextName = try cryptor.encryptFileName(originalName, dirId: dirId)
@@ -52,7 +52,7 @@ class CryptorTests: XCTestCase {
 	}
 
 	func testDecryptInvalidName() throws {
-		let dirId = "foo".data(using: .utf8)!
+		let dirId = Data("foo".utf8)
 		XCTAssertThrowsError(try cryptor.decryptFileName("****", dirId: dirId), "invalid ciphertext name encoding") { error in
 			XCTAssertEqual(.invalidParameter("Can't base64url-decode ciphertext name: ****"), error as? CryptoError)
 		}

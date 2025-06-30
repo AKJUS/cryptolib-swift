@@ -9,6 +9,12 @@ This library contains all cryptographic functions that are used by Cryptomator f
 
 For more information on the Cryptomator encryption scheme, visit the security architecture page on [docs.cryptomator.org](https://docs.cryptomator.org/en/1.6/security/architecture/).
 
+## Special Shoutout
+
+Continuous integration hosting is provided by [MacStadium](https://www.macstadium.com/company/opensource).
+
+<a href="https://www.macstadium.com/company/opensource"><img src="https://uploads-ssl.webflow.com/5ac3c046c82724970fc60918/5c019d917bba312af7553b49_MacStadium-developerlogo.png" alt="MacStadium" height="100"></a>
+
 ## Requirements
 
 - iOS 13.0 or higher
